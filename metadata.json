@@ -1,0 +1,7 @@
+{
+  "name": "Tech Stack Architect",
+  "description": "Interactive technology stack validation and blueprint generation platform.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

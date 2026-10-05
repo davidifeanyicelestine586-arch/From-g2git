@@ -1,0 +1,43 @@
+"use client";
+
+import * as React from "react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+} from "@/components/ui/sidebar";
+import sidebaritems from "./sidebaritems";
+import NavCollapse from "./nav-collapse";
+import SimpleBar from "simplebar-react";
+import { NavSecondary } from "./nav-secondary";
+import { NavUser } from "./nav-user";
+
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  return (
+    <Sidebar
+      variant="inset"
+      collapsible="icon"
+      {...props}
+      className="sidebar-box **:data-[slot=sidebar-inner]:bg-background **:data-[slot=sidebar-inner]:border **:data-[slot=sidebar-inner]:border-border group-data-[state=collapsed]:hover:shadow-xl"
+      side="left"
+    >
+      <SidebarContent>
+        <SimpleBar style={{ height: "100%" }}>
+          <SidebarGroup className="flex items-center justify-center px-3 py-4 group-data-[state=collapsed]:px-2">
+            <nav aria-label="Main workspace navigation" className="flex w-full flex-col gap-4">
+              <NavCollapse menu={sidebaritems} className="text-sm" />
+            </nav>
+          </SidebarGroup>
+        </SimpleBar>
+      </SidebarContent>
+
+      <SidebarFooter className="p-4">
+        <div className="hide-menu flex flex-col gap-2">
+          <NavSecondary />
+          <NavUser />
+        </div>
+      </SidebarFooter>
+    </Sidebar>
+  );
+}

@@ -1,0 +1,432 @@
+/* ==========================================================
+   Ediccrew Tech Stack Architect
+   Responsive Styles
+   Version: 1.0.0
+   ========================================================== */
+
+/* ==========================================================
+   Large Desktop (1400px+)
+   ========================================================== */
+
+@media (min-width: 1400px) {
+
+    .component-grid {
+
+        grid-template-columns:
+            repeat(auto-fill, minmax(320px, 1fr));
+
+    }
+
+}
+
+/* ==========================================================
+   Desktop (1200px and below)
+   ========================================================== */
+
+@media (max-width: 1200px) {
+
+    .layout {
+
+        grid-template-columns:
+
+            240px
+
+            1fr
+
+            300px;
+
+    }
+
+    :root {
+
+        --sidebar-width: 240px;
+
+        --inspector-width: 300px;
+
+    }
+
+}
+
+/* ==========================================================
+   Tablet (1024px and below)
+   ========================================================== */
+
+@media (max-width: 1024px) {
+
+    .layout {
+
+        grid-template-columns:
+
+            220px
+
+            1fr;
+
+    }
+
+    .inspector {
+
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -340px; /* Hide off-screen by default */
+        width: 320px;
+        height: 100vh;
+        z-index: 1000;
+        background: var(--surface);
+        border-left: 1px solid var(--border);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: var(--space-5);
+
+    }
+
+    .inspector.active {
+
+        right: 0; /* Slide in when active */
+
+    }
+
+    .fab {
+
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        z-index: 999;
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        box-shadow: var(--shadow-lg);
+        transition: transform var(--transition-fast), background var(--transition-fast);
+
+    }
+
+    .fab:hover {
+
+        transform: scale(1.08);
+
+    }
+
+    .fab .badge {
+
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: var(--danger, #EF4444);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--bg-panel);
+
+    }
+
+    .component-grid {
+
+        grid-template-columns:
+
+            repeat(auto-fill, minmax(260px, 1fr));
+
+    }
+
+    .header {
+
+        padding:
+
+            0 var(--space-5);
+
+    }
+
+}
+
+/* ==========================================================
+   Mobile Landscape
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .layout {
+
+        display: block;
+
+    }
+
+    .sidebar {
+
+        border-right: none;
+
+        border-bottom:
+
+            1px solid var(--border);
+
+    }
+
+    #domainList {
+
+        flex-direction: row;
+
+        gap: var(--space-3);
+
+        overflow-x: auto;
+
+        padding-bottom: var(--space-3);
+
+        -webkit-overflow-scrolling: touch;
+
+        scroll-snap-type: x mandatory;
+
+    }
+
+    #domainList::-webkit-scrollbar {
+
+        height: 6px;
+
+    }
+
+    #domainList::-webkit-scrollbar-thumb {
+
+        background: var(--border);
+
+        border-radius: 3px;
+
+    }
+
+    .domain-card {
+
+        width: auto;
+
+        margin-bottom: 0 !important;
+
+        flex-shrink: 0;
+
+        scroll-snap-align: start;
+
+    }
+
+    .content {
+
+        padding:
+
+            var(--space-5);
+
+    }
+
+}
+
+/* ==========================================================
+   Mobile
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .header {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: center;
+
+        gap: var(--space-3);
+
+        height: auto;
+
+        padding:
+
+            var(--space-4);
+
+    }
+
+    .header-actions {
+
+        width: 100%;
+
+    }
+
+    .header-actions input {
+
+        width: 100%;
+
+    }
+
+    .sidebar {
+
+        padding:
+
+            var(--space-4);
+
+    }
+
+    .content {
+
+        padding:
+
+            var(--space-4);
+
+    }
+
+    .panel {
+
+        padding:
+
+            var(--space-4);
+
+    }
+
+    .component-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .validation-summary {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .metrics {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .button-group {
+
+        flex-direction: column;
+
+    }
+
+    .score-wrapper {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+/* ==========================================================
+   Small Phones
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+    :root {
+
+        --panel-padding: 16px;
+
+    }
+
+    h1 {
+
+        font-size: 1.6rem;
+
+    }
+
+    h2 {
+
+        font-size: 1.2rem;
+
+    }
+
+    h3 {
+
+        font-size: 1rem;
+
+    }
+
+    .component-card,
+
+    .recipe-card {
+
+        min-height: auto;
+
+    }
+
+    .score-circle {
+
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 1.1rem;
+
+    }
+
+    .fab {
+
+        width: 54px;
+
+        height: 54px;
+
+        right: 16px;
+
+        bottom: 16px;
+
+    }
+
+}
+
+/* ==========================================================
+   Print
+   ========================================================== */
+
+@media print {
+
+    .sidebar,
+
+    .header,
+
+    .inspector,
+
+    button,
+
+    .fab {
+
+        display: none !important;
+
+    }
+
+    .layout {
+
+        display: block;
+
+    }
+
+    .panel {
+
+        box-shadow: none;
+
+        border: 1px solid #999;
+
+        page-break-inside: avoid;
+
+    }
+
+    body {
+
+        background: white;
+
+    }
+
+}

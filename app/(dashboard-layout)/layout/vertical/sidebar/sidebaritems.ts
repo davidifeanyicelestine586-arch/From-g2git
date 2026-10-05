@@ -1,0 +1,67 @@
+import {
+  Layers,
+  ShieldCheck,
+  SearchCheck,
+  FileCode2,
+  BookMarked,
+  ClipboardList,
+  LucideIcon,
+} from "lucide-react";
+import { uniqueId } from "lodash";
+import { NAVIGATION_ROUTE_BY_ID } from "@/lib/navigation/routes";
+
+export interface ChildItem {
+  id?: number | string;
+  name: string;
+  icon?: LucideIcon;
+  items?: ChildItem[];
+  item?: unknown;
+  url?: string;
+  color?: string;
+  disabled?: boolean;
+  subtitle?: string;
+  badge?: boolean;
+  badgeType?: string;
+  badgeContent?: string;
+  isActive?: boolean;
+  external?: boolean;
+  isPro?: boolean;
+  mobilePrimary?: boolean;
+  routeId?: string;
+}
+
+export interface MenuItem {
+  heading?: string;
+  name?: string;
+  icon?: LucideIcon;
+  id?: number;
+  to?: string;
+  item?: MenuItem[];
+  items?: ChildItem[];
+  url?: string;
+  disabled?: boolean;
+  subtitle?: string;
+  badgeType?: string;
+  badge?: boolean;
+  badgeContent?: string;
+  isActive?: boolean;
+  isPro?: boolean;
+}
+
+const route = (id: string) => NAVIGATION_ROUTE_BY_ID[id];
+
+const SidebarContent: MenuItem[] = [
+  {
+    heading: "TECH STACK ARCHITECT",
+    items: [
+      { id: uniqueId("nav_"), name: route("define").label, icon: ClipboardList, url: route("define").href, routeId: "define", mobilePrimary: true },
+      { id: uniqueId("nav_"), name: route("recommendations").label, icon: SearchCheck, url: route("recommendations").href, routeId: "recommendations", mobilePrimary: true },
+      { id: uniqueId("nav_"), name: route("components").label, icon: Layers, url: route("components").href, routeId: "components" },
+      { id: uniqueId("nav_"), name: route("validation").label, icon: ShieldCheck, url: route("validation").href, routeId: "validation", mobilePrimary: true },
+      { id: uniqueId("nav_"), name: route("blueprint").label, icon: FileCode2, url: route("blueprint").href, routeId: "blueprint", mobilePrimary: true },
+      { id: uniqueId("nav_"), name: route("docs").label, icon: BookMarked, url: route("docs").href, routeId: "docs" },
+    ],
+  },
+];
+
+export default SidebarContent;
